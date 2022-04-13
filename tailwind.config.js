@@ -1,7 +1,17 @@
 module.exports = {
-  content: [],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+      },
+      textColor: {
+        primary: 'var(--text-primary)',
+      },
+      backgroundColor: {
+        primary: 'var(--background)',
+      },
+    },
   },
   plugins: [],
 }

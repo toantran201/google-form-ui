@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --text-primary: #f8e71c;
+    }
+
+    [data-theme='light'] {
+        --text-primary: #f8e71c;
+        --background: #f0f0f0;
+    }
+
+    [data-theme='dark'] {
+        --text-primary: #f8e71c;
+        --background: #181818;
+    }
+}

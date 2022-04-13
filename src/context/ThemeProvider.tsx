@@ -21,7 +21,7 @@ export const useTheme = () => {
 
 export interface ThemeContextProviderProps {
   initTheme: Theme
-  children: any
+  children: never
 }
 
 export const ThemeContextProvider = ({
