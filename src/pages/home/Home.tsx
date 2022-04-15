@@ -42,8 +42,8 @@ const Home = () => {
           {/* Form items */}
           <div
             className={classNames(
-              'pt-2 transition-height duration-300 overflow-hidden',
-              expandRecentForm ? 'h-[1780px]' : 'h-48 xl:h-56'
+              'pt-2 pb-6 transition-all duration-300 overflow-hidden',
+              expandRecentForm ? 'max-h-[2000px]' : 'max-h-48 xl:max-h-56'
             )}
           >
             {formGroupList.map((item) => (
