@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
               type="text"
               placeholder={'Search'}
               className={
-                'bg-gray-100 py-3 px-14 rounded-xl focus:outline-none focus:bg-white focus:drop-shadow w-full placeholder:text-gray-500 placeholder:text-base'
+                'bg-gray-100 py-3 px-14 rounded-xl outline-none focus:bg-white focus:drop-shadow w-full placeholder:text-gray-500 placeholder:text-base transition-all duration-300'
               }
             />
           </div>

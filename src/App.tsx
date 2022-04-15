@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import Home from './pages/home/Home'
 
 function App() {
   const toggleTheme = () => {
@@ -9,6 +10,7 @@ function App() {
   return (
     <div className={'bg-primary'}>
       <Navbar />
+      <Home />
     </div>
   )
 }

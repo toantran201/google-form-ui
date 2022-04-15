@@ -16,4 +16,22 @@
         --text-primary: #f8e71c;
         --background: #181818;
     }
+
+    ::-webkit-scrollbar {
+        @apply bg-white h-4 w-4 border-4
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-gray-300 hover:bg-gray-400 rounded-lg border-4 border-solid border-white;
+    }
+
+    ::-webkit-scrollbar-track-piece{
+        @apply border-4;
+    }
+}
+
+@layer utilities {
+    .container{
+        @apply m-auto lg:max-w-[690px] xl:max-w-[1140px]
+    }
 }
