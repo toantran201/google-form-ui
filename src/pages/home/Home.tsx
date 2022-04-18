@@ -1,9 +1,12 @@
 import React from 'react'
 import DotHorizontalIcon from '../../components/Icons/DotHorizontalIcon'
-import RecentFormItem from './components/RecentFormItem'
 import classNames from 'classnames'
 import { formGroupList } from '../../fakeData/form'
 import FormGroupItem from './components/FormGroupItem'
+import RecentFormFilter from './components/RecentFormFilter'
+import { SortAscendingIcon, ViewListIcon } from '@heroicons/react/solid'
+import { FolderIcon } from '@heroicons/react/outline'
+import RecentSortFilter from './components/RecentSortFilter'
 
 const Home = () => {
   const [expandRecentForm, setExpandRecentForm] = React.useState(false)
@@ -14,7 +17,7 @@ const Home = () => {
         <div className={'container'}>
           {/* form nav*/}
           <div className={'flex items-center justify-between pt-3.5'}>
-            <h3 className={'text-base font-normal'}>Start a new form</h3>
+            <h3 className={'text-sm font-normal'}>Start a new form</h3>
             <div className={'flex'}>
               <button
                 className={
@@ -22,7 +25,7 @@ const Home = () => {
                 }
                 onClick={() => setExpandRecentForm((prevState) => !prevState)}
               >
-                <h3 className={'text-base font-semibold'}>Template gallery</h3>
+                <h3 className={'text-sm font-semibold'}>Template gallery</h3>
                 <img
                   src="src/assets/icons/selector.svg"
                   alt="selector-icon"
@@ -53,6 +56,29 @@ const Home = () => {
         </div>
       </div>
       {/* Recent forms */}
+      <div>
+        {/* React nav bar */}
+        <div className={'container flex py-5 items-center justify-between'}>
+          <h3 className={'text-sm font-semibold'}>Recent forms</h3>
+          <div className={'flex space-x-20'}>
+            <RecentFormFilter />
+            <div className={'flex space-x-4'}>
+              <button className={'p-2 rounded-full hover:bg-gray-200'}>
+                <ViewListIcon
+                  className={'w-5 h-5 rounded-full text-gray-700'}
+                />
+              </button>
+              <RecentSortFilter />
+              <button className={'p-2 rounded-full hover:bg-gray-200'}>
+                <FolderIcon className={'w-5 h-5 rounded-full text-gray-700'} />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h1>Hello</h1>
+        </div>
+      </div>
     </div>
   )
 }
