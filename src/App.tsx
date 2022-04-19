@@ -1,16 +1,14 @@
 import Navbar from './components/Navbar'
 import Home from './pages/home/Home'
+import { HomeActionContextProvider } from './context/HomeActionProvider'
 
 function App() {
-  const toggleTheme = () => {
-    console.log(document.documentElement.dataset)
-    document.documentElement.dataset.theme = 'dark'
-  }
-
   return (
     <div className={'bg-primary'}>
-      <Navbar />
-      <Home />
+      <HomeActionContextProvider initHomeAction={{ isTemplateToggle: false }}>
+        <Navbar />
+        <Home />
+      </HomeActionContextProvider>
     </div>
   )
 }

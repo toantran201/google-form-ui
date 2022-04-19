@@ -4,13 +4,17 @@ import classNames from 'classnames'
 import { formGroupList } from '../../fakeData/form'
 import FormsGroup from './components/FormsGroup'
 import ButtonRecentFormFilter from './components/ButtonRecentFormFilter'
-import { SortAscendingIcon, ViewListIcon } from '@heroicons/react/solid'
+import { ViewListIcon } from '@heroicons/react/solid'
 import { FolderIcon } from '@heroicons/react/outline'
 import ButtonRecentSortFilter from './components/ButtonRecentSortFilter'
 import RecentFormItem from './components/items/RecentFormItem'
+import {
+  TOGGLE_TEMPLATE_ACTION,
+  useHomeAction,
+} from '../../context/HomeActionProvider'
 
 const Home = () => {
-  const [expandRecentForm, setExpandRecentForm] = React.useState(false)
+  const { homeAction: homeActionState, dispatch } = useHomeAction()
   return (
     <div>
       {/* New forms */}
@@ -18,13 +22,24 @@ const Home = () => {
         <div className={'container'}>
           {/* form nav*/}
           <div className={'flex items-center justify-between pt-3.5'}>
-            <h3 className={'text-sm font-normal'}>Start a new form</h3>
-            <div className={'flex'}>
+            <h3 className={'text-sm font-normal'}>
+              {homeActionState.isTemplateToggle
+                ? 'Recently used'
+                : 'Start a new form'}
+            </h3>
+            <div
+              className={classNames(
+                'flex',
+                homeActionState.isTemplateToggle
+                  ? 'invisible opacity-0'
+                  : 'visible opacity-100'
+              )}
+            >
               <button
                 className={
                   'flex items-center px-3 py-1.5 space-x-3 hover:bg-gray-300 rounded-md'
                 }
-                onClick={() => setExpandRecentForm((prevState) => !prevState)}
+                onClick={() => dispatch({ type: TOGGLE_TEMPLATE_ACTION })}
               >
                 <h3 className={'text-sm font-semibold'}>Template gallery</h3>
                 <img
@@ -46,8 +61,10 @@ const Home = () => {
           {/* Form items */}
           <div
             className={classNames(
-              'pt-2 pb-6 transition-all duration-300 overflow-hidden',
-              expandRecentForm ? 'max-h-[2000px]' : 'max-h-48 xl:max-h-56'
+              'pt-2 pb-6 transition-all duration-700 overflow-hidden',
+              homeActionState.isTemplateToggle
+                ? 'max-h-[2000px]'
+                : 'max-h-48 xl:max-h-56'
             )}
           >
             {formGroupList.map((item) => (
@@ -57,9 +74,16 @@ const Home = () => {
         </div>
       </div>
       {/* Recent forms */}
-      <div>
+      <div
+        className={classNames(
+          'transition-all duration-300',
+          homeActionState.isTemplateToggle
+            ? 'opacity-0 h-0 overflow-hidden'
+            : 'opacity-100'
+        )}
+      >
         {/* React nav bar */}
-        <div className={'container '}>
+        <div className={'container'}>
           <div className={'flex py-5 items-center justify-between'}>
             <h3 className={'text-sm font-semibold'}>Recent forms</h3>
             <div className={'flex space-x-20'}>

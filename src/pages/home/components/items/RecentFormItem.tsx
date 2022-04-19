@@ -10,7 +10,7 @@ const RecentFormItem = () => {
     >
       <div className={'border-b-[1px] border-gray-200'}>
         <img
-          src="https://lh3.googleusercontent.com/fife/AAWUweWyJF56JAjkb6CapfAWuwMGg4dALN8Jcvv7UR2t1MueVof_1LbQ9SJAsSql1ZGA4GImPTgCMHDMUeB4oHfZcsRFfZAJto4zUFLh4d6hO_dPw4Zi-5PoolhzJG1T-KgLafBg8fFgWgvyCbE1o8sI0gbYY7GxdXcKEh1f6BU8pqekQtqyKkrZ9QsZUyaOYx_FYM8rkFy81qor0qeQb54FvOcKg6reEti6YRxMBnnxrj8wPkGNOf6gdox-gAF7r-by3Go_7iZo7pVQonxU83ANO664GJe8936ezJzQONgXU_Y0tfCcyee7nOQ1wrmOQXFOj2bQHyF5k6nedYF2LELOqzhSQcwePsC4v7wJ7BcZWWG9E54wlyhFirs_4Aa_upC6s7EnxYMNdRtWE-DFuBZPBcjWXE8A9qIubkX0YbO_kv4eFLiB_oLvfanEAK1Xao9B_MOqicni9OiHojpZLcH5ES_tLxHe5hUgQZGh6L9y1c_fNgBZ1DzbTrgSwyu8nfUUTPDvtoChbQOLbCa5A-55h3ndK1RuICyNyxzGF9g0cl62QoHeQ-tAmfXlzDMfkOh8Lp-r7pkkvOcx87zAtX9TVhJYbkDpec94q1iCBQwgWeN1wJVDVlpksyYL31p86_K19kv6v6LQe6blgGmAq1BQXtGEetXWxGMMtdgnXDWiyJsI165046srDslfuEv7ejmK4fayMkGVQrqe60BStcs1K7AZpqkdVV5CGuFaWkCt0OhFh5DbGu7_r5RTIL0pDzqL-lNuVjpKfu1a1NEjSqDgTQN5kvV-e7ZYlA5tBLHlkwv9r-sIYA2P-WBaHbJuJTEvhXQ=w208-h156-p"
+          src="https://ssl.gstatic.com/docs/templates/thumbnails/1xQF3s6EP0d58H-XJ7R440OpREKo4KqEapa0mkw43RPE_400.png"
           alt=""
           className={'h-40'}
         />

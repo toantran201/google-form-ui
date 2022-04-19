@@ -16,3 +16,7 @@ export interface FormGroup {
   name: string
   forms: FormItem[]
 }
+
+export interface HomeAction {
+  isTemplateToggle: boolean
+}
