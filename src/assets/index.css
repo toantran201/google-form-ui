@@ -4,6 +4,7 @@
 
 @layer base {
     :root {
+        overflow-y: scroll;
         --text-primary: #f8e71c;
     }
 

@@ -1,5 +1,5 @@
 import { FormGroup } from '../../../types'
-import RecentFormItem from './RecentFormItem'
+import NewFormItem from './items/NewFormItem'
 import React from 'react'
 import classNames from 'classnames'
 
@@ -7,7 +7,7 @@ export interface FormGroupProps {
   formGroup: FormGroup
 }
 
-const FormGroupItem = ({ formGroup }: FormGroupProps) => {
+const FormsGroup = ({ formGroup }: FormGroupProps) => {
   return (
     <div className={formGroup.id === 1 ? 'mt-4' : 'mt-8'}>
       {formGroup.id !== 1 && <h3>{formGroup.name}</h3>}
@@ -20,7 +20,7 @@ const FormGroupItem = ({ formGroup }: FormGroupProps) => {
         )}
       >
         {formGroup.forms.map((item) => (
-          <RecentFormItem
+          <NewFormItem
             key={item.id}
             background={item.background}
             itemName={item.name}
@@ -31,4 +31,4 @@ const FormGroupItem = ({ formGroup }: FormGroupProps) => {
   )
 }
 
-export default FormGroupItem
+export default FormsGroup

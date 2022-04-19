@@ -9,7 +9,7 @@ const recentFormFilters = [
   { id: 3, title: 'Not owned by me' },
 ]
 
-const RecentFormFilter = () => {
+const ButtonRecentFormFilter = () => {
   const [selectedRecentFilter, setSelectedRecentFilter] = React.useState(
     recentFormFilters[0]
   )
@@ -26,7 +26,7 @@ const RecentFormFilter = () => {
         </Listbox.Button>
         <Listbox.Options
           className={
-            'absolute w-[150%] -left-1/4 top-[100%] shadow-md py-2 rounded-md outline-none'
+            'absolute bg-white w-[150%] -left-1/4 top-[100%] shadow-md py-2 rounded-md outline-none'
           }
         >
           {recentFormFilters.map((item) => (
@@ -59,4 +59,4 @@ const RecentFormFilter = () => {
   )
 }
 
-export default RecentFormFilter
+export default ButtonRecentFormFilter

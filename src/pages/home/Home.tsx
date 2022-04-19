@@ -2,11 +2,12 @@ import React from 'react'
 import DotHorizontalIcon from '../../components/Icons/DotHorizontalIcon'
 import classNames from 'classnames'
 import { formGroupList } from '../../fakeData/form'
-import FormGroupItem from './components/FormGroupItem'
-import RecentFormFilter from './components/RecentFormFilter'
+import FormsGroup from './components/FormsGroup'
+import ButtonRecentFormFilter from './components/ButtonRecentFormFilter'
 import { SortAscendingIcon, ViewListIcon } from '@heroicons/react/solid'
 import { FolderIcon } from '@heroicons/react/outline'
-import RecentSortFilter from './components/RecentSortFilter'
+import ButtonRecentSortFilter from './components/ButtonRecentSortFilter'
+import RecentFormItem from './components/items/RecentFormItem'
 
 const Home = () => {
   const [expandRecentForm, setExpandRecentForm] = React.useState(false)
@@ -50,7 +51,7 @@ const Home = () => {
             )}
           >
             {formGroupList.map((item) => (
-              <FormGroupItem key={item.id} formGroup={item} />
+              <FormsGroup key={item.id} formGroup={item} />
             ))}
           </div>
         </div>
@@ -58,25 +59,33 @@ const Home = () => {
       {/* Recent forms */}
       <div>
         {/* React nav bar */}
-        <div className={'container flex py-5 items-center justify-between'}>
-          <h3 className={'text-sm font-semibold'}>Recent forms</h3>
-          <div className={'flex space-x-20'}>
-            <RecentFormFilter />
-            <div className={'flex space-x-4'}>
-              <button className={'p-2 rounded-full hover:bg-gray-200'}>
-                <ViewListIcon
-                  className={'w-5 h-5 rounded-full text-gray-700'}
-                />
-              </button>
-              <RecentSortFilter />
-              <button className={'p-2 rounded-full hover:bg-gray-200'}>
-                <FolderIcon className={'w-5 h-5 rounded-full text-gray-700'} />
-              </button>
+        <div className={'container '}>
+          <div className={'flex py-5 items-center justify-between'}>
+            <h3 className={'text-sm font-semibold'}>Recent forms</h3>
+            <div className={'flex space-x-20'}>
+              <ButtonRecentFormFilter />
+              <div className={'flex space-x-4'}>
+                <button className={'p-2 rounded-full hover:bg-gray-200'}>
+                  <ViewListIcon
+                    className={'w-5 h-5 rounded-full text-gray-700'}
+                  />
+                </button>
+                <ButtonRecentSortFilter />
+                <button className={'p-2 rounded-full hover:bg-gray-200'}>
+                  <FolderIcon
+                    className={'w-5 h-5 rounded-full text-gray-700'}
+                  />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div>
-          <h1>Hello</h1>
+          <div className={'grid grid-cols-3 xl:grid-cols-5 gap-y-5'}>
+            <RecentFormItem />
+            <RecentFormItem />
+            <RecentFormItem />
+            <RecentFormItem />
+            <RecentFormItem />
+          </div>
         </div>
       </div>
     </div>

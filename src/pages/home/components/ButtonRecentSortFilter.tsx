@@ -10,7 +10,7 @@ const recentSortFilters = [
   { id: 4, title: 'Title' },
 ]
 
-const RecentSortFilter = () => {
+const ButtonRecentSortFilter = () => {
   const [selectedRecentSortFilter, setSelectedRecentSortFilter] =
     React.useState(recentSortFilters[0])
   return (
@@ -24,7 +24,7 @@ const RecentSortFilter = () => {
         </Listbox.Button>
         <Listbox.Options
           className={
-            'absolute w-[550%] -left-[250%] top-[100%] shadow-md py-2 rounded-md outline-none'
+            'absolute bg-white w-[550%] -left-[250%] top-[100%] shadow-md py-2 rounded-md outline-none'
           }
         >
           {recentSortFilters.map((item) => (
@@ -57,4 +57,4 @@ const RecentSortFilter = () => {
   )
 }
 
-export default RecentSortFilter
+export default ButtonRecentSortFilter

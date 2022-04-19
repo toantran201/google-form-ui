@@ -1,8 +1,8 @@
-export interface RecentFormItemProps {
+export interface NewFormItemProps {
   background: string
   itemName: string
 }
-const RecentFormItem = ({ background, itemName }: RecentFormItemProps) => {
+const NewFormItem = ({ background, itemName }: NewFormItemProps) => {
   return (
     <div>
       <figure>
@@ -21,4 +21,4 @@ const RecentFormItem = ({ background, itemName }: RecentFormItemProps) => {
   )
 }
 
-export default RecentFormItem
+export default NewFormItem
