@@ -178,13 +178,13 @@ export const recentOpenForms: FormItem[] = [
     name: 'Contact Information',
     background:
       'https://ssl.gstatic.com/docs/templates/thumbnails/1xQF3s6EP0d58H-XJ7R440OpREKo4KqEapa0mkw43RPE_400.png',
-    lastOpened: 'March 20, 2022',
+    lastOpened: 'Mar 20, 2022',
   },
   {
     id: 3,
     name: 'Event Registration',
     background:
       'https://ssl.gstatic.com/docs/templates/thumbnails/1pM0fD5FWTXCGw4h0g1WSP8Nj3mS56l1EaCZAec-p2uc_400.png',
-    lastOpened: 'March 19, 2022',
+    lastOpened: 'Mar 19, 2022',
   },
 ]

@@ -5,6 +5,7 @@ import {
   TOGGLE_TEMPLATE_ACTION,
   useHomeAction,
 } from '../context/HomeActionProvider'
+import ApplicationMenu from './ApplicationMenu'
 
 const Navbar: React.FC = () => {
   const [showSearch, setShowSearch] = React.useState(false)
@@ -108,9 +109,7 @@ const Navbar: React.FC = () => {
           >
             <img src="src/assets/icons/search.svg" alt="search-icon" />
           </button>
-          <button className={'p-2 hover:bg-gray-100 rounded-full'}>
-            <img src="src/assets/icons/dot-grid.svg" alt="dot-grid-menu" />
-          </button>
+          <ApplicationMenu />
           <button className={'p-2 rounded-full overflow-hidden'}>
             <img
               src="src/assets/images/avatar.jpg"
