@@ -1,7 +1,7 @@
 import React from 'react'
 import DotHorizontalIcon from '../../components/Icons/DotHorizontalIcon'
 import classNames from 'classnames'
-import { formGroupList } from '../../fakeData/form'
+import { formGroupList, recentOpenForms } from '../../fakeData/forms'
 import FormsGroup from './components/FormsGroup'
 import ButtonRecentFormFilter from './components/ButtonRecentFormFilter'
 import { ViewListIcon } from '@heroicons/react/solid'
@@ -76,7 +76,7 @@ const Home = () => {
       {/* Recent forms */}
       <div
         className={classNames(
-          'transition-all duration-300',
+          'transition-all duration-300 delay-700',
           homeActionState.isTemplateToggle
             ? 'opacity-0 h-0 overflow-hidden'
             : 'opacity-100'
@@ -104,11 +104,15 @@ const Home = () => {
             </div>
           </div>
           <div className={'grid grid-cols-3 xl:grid-cols-5 gap-y-5'}>
-            <RecentFormItem />
-            <RecentFormItem />
-            <RecentFormItem />
-            <RecentFormItem />
-            <RecentFormItem />
+            {recentOpenForms.map((form) => (
+              <RecentFormItem
+                key={form.id}
+                id={form.id}
+                background={form.background}
+                name={form.name}
+                lastOpened={form.lastOpened}
+              />
+            ))}
           </div>
         </div>
       </div>

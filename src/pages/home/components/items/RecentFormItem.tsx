@@ -1,7 +1,9 @@
-import { DotsVerticalIcon } from '@heroicons/react/outline'
 import ButtonFormItem from './ButtonFormItem'
+import { FormItem } from '../../../../types'
+import React from 'react'
 
-const RecentFormItem = () => {
+const RecentFormItem = (props: FormItem) => {
+  const { name, id, lastOpened, background } = props
   return (
     <div
       className={
@@ -9,21 +11,19 @@ const RecentFormItem = () => {
       }
     >
       <div className={'border-b-[1px] border-gray-200'}>
-        <img
-          src="https://ssl.gstatic.com/docs/templates/thumbnails/1xQF3s6EP0d58H-XJ7R440OpREKo4KqEapa0mkw43RPE_400.png"
-          alt=""
-          className={'h-40'}
-        />
+        <img src={background} alt={name} className={'h-40'} />
       </div>
       <div className={'relative pt-4 pb-3 pl-4 pr-2'}>
-        <h3 className={'text-sm font-semibold'}>T-Shirt Sign Up</h3>
+        <h3 className={'text-sm font-semibold'}>{name}</h3>
         <div className={'mt-1 flex items-center space-x-2'}>
           <img
             src="src/assets/icons/favicon_qp2.png"
             alt="Google form icon"
             className={'w-5 h-5 rounded-sm'}
           />
-          <p className={'text-xs font-normal text-gray-400'}>Opened 2:45 AM</p>
+          <p className={'text-xs font-normal text-gray-400'}>
+            Opened {lastOpened}
+          </p>
         </div>
         <ButtonFormItem />
       </div>
@@ -31,4 +31,4 @@ const RecentFormItem = () => {
   )
 }
 
-export default RecentFormItem
+export default React.memo(RecentFormItem)

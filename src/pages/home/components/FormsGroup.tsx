@@ -31,4 +31,4 @@ const FormsGroup = ({ formGroup }: FormGroupProps) => {
   )
 }
 
-export default FormsGroup
+export default React.memo(FormsGroup)

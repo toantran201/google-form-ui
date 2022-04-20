@@ -1,6 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import {
+  TOGGLE_SIDEBAR_ACTION,
   TOGGLE_TEMPLATE_ACTION,
   useHomeAction,
 } from '../context/HomeActionProvider'
@@ -12,13 +13,21 @@ const Navbar: React.FC = () => {
     ? 'opacity-0 invisible'
     : 'visible opacity-100'
 
+  const navBarIconClick = () => {
+    if (homeActionState.isTemplateToggle) {
+      dispatch({ type: TOGGLE_TEMPLATE_ACTION })
+    } else {
+      dispatch({ type: TOGGLE_SIDEBAR_ACTION, value: true })
+    }
+  }
+
   return (
-    <nav className={'sticky top-0 left- bg-white z-50'}>
+    <nav className={'sticky top-0 left- bg-white z-40'}>
       <div className={'flex items-center justify-between p-2 sm:space-x-8'}>
         <div className={'flex items-center space-x-1 xl:min-w-[194px]'}>
           <button
-            className={'p-3 hover:bg-gray-100 rounded-full'}
-            onClick={() => dispatch({ type: TOGGLE_TEMPLATE_ACTION })}
+            className={'p-3 hover:bg-gray-100 rounded-full outline-none'}
+            onClick={navBarIconClick}
           >
             <img
               src={
@@ -33,7 +42,7 @@ const Navbar: React.FC = () => {
             className={classNames(
               'text-lg transition-all duration-300 absolute',
               homeActionState.isTemplateToggle
-                ? 'visible opacity-100 left-[60px]'
+                ? 'visible opacity-100 left-[80px]'
                 : 'opacity-0 invisible left-0'
             )}
           >

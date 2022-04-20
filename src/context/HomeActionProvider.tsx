@@ -2,6 +2,7 @@ import React, { createContext, Dispatch, useContext, useReducer } from 'react'
 import { HomeAction } from '../types'
 
 export const TOGGLE_TEMPLATE_ACTION = 'TOGGLE_TEMPLATE'
+export const TOGGLE_SIDEBAR_ACTION = 'TOGGLE_SIDEBAR_ACTION'
 
 const HomeActionContext = createContext<
   | { homeAction: HomeAction; dispatch: Dispatch<HomeActionReducerProps> }
@@ -24,12 +25,16 @@ interface HomeActionContextProviderProps {
 
 interface HomeActionReducerProps {
   type: string
+  value?: any
 }
 
 const reducerFn = (state: HomeAction, action: HomeActionReducerProps) => {
   switch (action.type) {
     case TOGGLE_TEMPLATE_ACTION: {
       return { ...state, isTemplateToggle: !state.isTemplateToggle }
+    }
+    case TOGGLE_SIDEBAR_ACTION: {
+      return { ...state, isOpenSidebar: action.value }
     }
     default:
       return state

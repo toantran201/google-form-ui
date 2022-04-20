@@ -9,6 +9,7 @@ export interface FormItem {
   id: number
   background: string
   name: string
+  lastOpened?: string
 }
 
 export interface FormGroup {
@@ -19,4 +20,5 @@ export interface FormGroup {
 
 export interface HomeAction {
   isTemplateToggle: boolean
+  isOpenSidebar: boolean
 }
