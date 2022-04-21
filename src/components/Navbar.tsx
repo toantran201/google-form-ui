@@ -6,6 +6,7 @@ import {
   useHomeAction,
 } from '../context/HomeActionProvider'
 import ApplicationMenu from './ApplicationMenu'
+import ProfileMenu from './ProfileMenu'
 
 const Navbar: React.FC = () => {
   const [showSearch, setShowSearch] = React.useState(false)
@@ -110,13 +111,7 @@ const Navbar: React.FC = () => {
             <img src="src/assets/icons/search.svg" alt="search-icon" />
           </button>
           <ApplicationMenu />
-          <button className={'p-2 rounded-full overflow-hidden'}>
-            <img
-              src="src/assets/images/avatar.jpg"
-              alt="avatar"
-              className={'w-8 h-8 rounded-full hover:ring-4 ring-gray-200'}
-            />
-          </button>
+          <ProfileMenu />
         </div>
       </div>
     </nav>

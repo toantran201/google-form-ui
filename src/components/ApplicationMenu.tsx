@@ -32,6 +32,7 @@ import googleAds from '../assets/icons/social/google-ads.svg'
 import googlePodcasts from '../assets/icons/social/google-podcasts.svg'
 import googleTravel from '../assets/icons/social/google-travel.svg'
 import googleForms from '../assets/icons/social/google-forms.svg'
+import classNames from 'classnames'
 
 const menuSection = [
   {
@@ -80,14 +81,25 @@ const ApplicationMenu: React.FC = () => {
   return (
     <Popover className="relative">
       <Popover.Button
-        className={'p-2 hover:bg-gray-100 rounded-full outline-none'}
+        className={
+          'p-2 hover:bg-gray-100 active:bg-gray-200 rounded-full outline-none'
+        }
       >
         <img src="src/assets/icons/dot-grid.svg" alt="dot-grid-menu" />
       </Popover.Button>
 
-      <Popover.Panel className="absolute z-10 w-80 -right-12 shadow-md bg-white rounded-lg max-h-[450px] overflow-y-scroll">
-        {menuSection.map((section) => (
-          <div key={section.id} className="grid grid-cols-3 p-3 border-b-[1px]">
+      <Popover.Panel
+        className={classNames(
+          'absolute z-10 w-80 top-[120%] -right-12 py-2 bg-white rounded-lg max-h-[460px] overflow-y-scroll menu-shadow'
+        )}
+      >
+        {menuSection.map((section, index) => (
+          <div
+            key={section.id}
+            className={classNames('grid grid-cols-3 p-3', {
+              'border-b-[1px]': index + 1 !== menuSection.length,
+            })}
+          >
             {section.menuList.map((menu) => (
               <div className={'p-2'} key={menu.id}>
                 <div
@@ -100,12 +112,21 @@ const ApplicationMenu: React.FC = () => {
                     alt=""
                     className={'h-12 h-12 rounded-full m-auto'}
                   />
-                  <h1 className={'text-center'}>{menu.title}</h1>
+                  <h1 className={'text-center text-sm mt-1'}>{menu.title}</h1>
                 </div>
               </div>
             ))}
           </div>
         ))}
+        <div className={'pt-4 pb-5 text-center'}>
+          <button
+            className={
+              'text-sm text-blue-700 px-6 py-2.5 border-[1px] rounded-md hover:bg-blue-50'
+            }
+          >
+            More on Google
+          </button>
+        </div>
       </Popover.Panel>
     </Popover>
   )
