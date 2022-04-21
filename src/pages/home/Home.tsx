@@ -12,9 +12,12 @@ import {
   TOGGLE_TEMPLATE_ACTION,
   useHomeAction,
 } from '../../context/HomeActionProvider'
+import BaseDialog from '../../components/base/BaseDialog'
+import { RECENT_FORM_ACTION } from '../../utils/constant'
 
 const Home = () => {
   const { homeAction: homeActionState, dispatch } = useHomeAction()
+  const [openDialog, setOpenDialog] = React.useState(RECENT_FORM_ACTION.NONE)
   return (
     <div>
       {/* New forms */}
@@ -111,11 +114,87 @@ const Home = () => {
                 background={form.background}
                 name={form.name}
                 lastOpened={form.lastOpened}
+                onSelectAction={(key: string) => setOpenDialog(key)}
               />
             ))}
           </div>
         </div>
       </div>
+      {/*  Dialog*/}
+      <BaseDialog
+        open={openDialog === RECENT_FORM_ACTION.REMOVE}
+        onClose={() => setOpenDialog(RECENT_FORM_ACTION.NONE)}
+        title={'Move to trash?'}
+        size={'xl'}
+      >
+        <div>
+          <p className={'text-gray-600'}>
+            Form will be moved to Drive trash and deleted forever after 30 days.
+          </p>
+          <div className={'mt-4 '}>
+            <p className={'inline-block text-gray-600'}>
+              If this file is shared, collaborators can still make a copy of it
+              until it's permanently deleted. &nbsp;
+            </p>
+            <a href="#" className={'text-blue-700 outline-none'}>
+              Learn more
+            </a>
+          </div>
+          <div className={'flex justify-end space-x-4 mt-6'}>
+            <button
+              className={
+                'px-6 py-2 text-violet-600 border-[1px] rounded-md hover:bg-blue-50'
+              }
+              onClick={() => setOpenDialog(RECENT_FORM_ACTION.NONE)}
+            >
+              Cancel
+            </button>
+            <button
+              className={
+                'px-6 py-2 bg-violet-600 text-white rounded-md hover:bg-blue-600 uppercase'
+              }
+            >
+              Move to trash
+            </button>
+          </div>
+        </div>
+      </BaseDialog>
+
+      <BaseDialog
+        open={openDialog === RECENT_FORM_ACTION.RENAME}
+        onClose={() => setOpenDialog(RECENT_FORM_ACTION.NONE)}
+        title={'Rename'}
+        size={'sm'}
+      >
+        <div>
+          <p className={'text-gray-500'}>
+            Please enter a new name for the item:
+          </p>
+          <input
+            type="text"
+            className={
+              'w-full mt-6 border-[1px] hover:border-gray-400 focus:border-violet-800 outline-none rounded-md px-3 py-1 text-sm'
+            }
+          />
+        </div>
+        <div className={'flex justify-end space-x-4 mt-6'}>
+          <button
+            className={
+              'px-6 py-2 text-violet-600 border-[1px] rounded-md hover:bg-blue-50'
+            }
+            onClick={() => setOpenDialog(RECENT_FORM_ACTION.NONE)}
+          >
+            Cancel
+          </button>
+          <button
+            className={
+              'px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 uppercase'
+            }
+          >
+            OK
+          </button>
+        </div>
+      </BaseDialog>
     </div>
   )
 }

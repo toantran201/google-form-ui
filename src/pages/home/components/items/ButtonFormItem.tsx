@@ -2,24 +2,44 @@ import { DotsVerticalIcon } from '@heroicons/react/outline'
 import { Listbox } from '@headlessui/react'
 import React from 'react'
 import classNames from 'classnames'
-import { CheckIcon } from '@heroicons/react/solid'
 import googleFormIcon from '../../../../assets/icons/rename.svg'
 import remove from '../../../../assets/icons/trash.svg'
 import openNewTab from '../../../../assets/icons/open-in-new.svg'
+import { RECENT_FORM_ACTION } from '../../../../utils/constant'
 
 const recentFormItemOptions = [
-  { id: 1, title: 'Rename', icon: googleFormIcon },
-  { id: 2, title: 'Remove', icon: remove },
-  { id: 3, title: 'Open in new tab', icon: openNewTab },
+  {
+    id: 1,
+    title: 'Rename',
+    icon: googleFormIcon,
+    key: RECENT_FORM_ACTION.RENAME,
+  },
+  { id: 2, title: 'Remove', icon: remove, key: RECENT_FORM_ACTION.REMOVE },
+  {
+    id: 3,
+    title: 'Open in new tab',
+    icon: openNewTab,
+    key: RECENT_FORM_ACTION.NONE,
+  },
 ]
 
-const ButtonFormItem = () => {
+interface ButtonFormItemProps {
+  onSelectAction: (key: string) => void
+}
+
+const ButtonFormItem = ({ onSelectAction }: ButtonFormItemProps) => {
   const [selectedOption, setSelectedOption] = React.useState(
     recentFormItemOptions[0]
   )
   return (
     <div className={'relative'}>
-      <Listbox onChange={setSelectedOption} value={selectedOption}>
+      <Listbox
+        onChange={(value) => {
+          setSelectedOption(value)
+          onSelectAction(value.key)
+        }}
+        value={selectedOption}
+      >
         <Listbox.Button
           className={
             'absolute right-0 bottom-0 p-1 rounded-full hover:bg-gray-200'

@@ -1,9 +1,16 @@
 import ButtonFormItem from './ButtonFormItem'
-import { FormItem } from '../../../../types'
 import React from 'react'
 
-const RecentFormItem = (props: FormItem) => {
-  const { name, id, lastOpened, background } = props
+interface RecentFormItemProps {
+  id: number
+  background: string
+  name: string
+  lastOpened?: string
+  onSelectAction: (key: string) => void
+}
+
+const RecentFormItem = (props: RecentFormItemProps) => {
+  const { name, lastOpened, background, onSelectAction } = props
   return (
     <div
       className={
@@ -25,7 +32,7 @@ const RecentFormItem = (props: FormItem) => {
             Opened {lastOpened}
           </p>
         </div>
-        <ButtonFormItem />
+        <ButtonFormItem onSelectAction={onSelectAction} />
       </div>
     </div>
   )

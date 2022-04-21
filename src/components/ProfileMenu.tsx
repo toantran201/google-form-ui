@@ -14,7 +14,7 @@ const ProfileMenu: React.FC = () => {
       </Popover.Button>
       <Popover.Panel
         className={
-          'absolute z-10 w-80 top-[110%] right-0 py-2 bg-white rounded-lg menu-shadow'
+          'absolute z-10 w-[360px] top-[110%] right-0 py-2 bg-white rounded-lg menu-shadow'
         }
       >
         <div className={'py-6 border-b-[1px]'}>
