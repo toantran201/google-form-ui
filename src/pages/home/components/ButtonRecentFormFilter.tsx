@@ -26,7 +26,7 @@ const ButtonRecentFormFilter = () => {
         </Listbox.Button>
         <Listbox.Options
           className={
-            'absolute bg-white w-[150%] -left-1/4 top-[100%] shadow-md py-2 rounded-md outline-none'
+            'absolute bg-white w-[150%] -left-1/4 top-[100%] py-2 rounded-md outline-none menu-shadow'
           }
         >
           {recentFormFilters.map((item) => (
