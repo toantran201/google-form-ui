@@ -1,12 +1,12 @@
 import Sidebar from '../../components/Sidebar'
-import Navbar from '../../components/Navbar'
 import { Outlet } from 'react-router-dom'
+import NavbarLayout from '../navbar/NavbarLayout'
 
 const MainLayout = () => {
   return (
     <>
       <Sidebar />
-      <Navbar />
+      <NavbarLayout />
       <main>
         <Outlet />
       </main>
