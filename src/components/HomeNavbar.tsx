@@ -5,8 +5,8 @@ import {
   TOGGLE_TEMPLATE_ACTION,
   useHomeAction,
 } from '../context/HomeActionProvider'
-import ApplicationMenu from './ApplicationMenu'
-import ProfileMenu from './ProfileMenu'
+import ApplicationMenu from './menu/ApplicationMenu'
+import ProfileMenu from './menu/ProfileMenu'
 
 const HomeNavbar: React.FC = () => {
   const [showSearch, setShowSearch] = React.useState(false)

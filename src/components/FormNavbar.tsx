@@ -5,9 +5,10 @@ import {
   FolderIcon,
   StarIcon,
 } from '@heroicons/react/outline'
-import ProfileMenu from './ProfileMenu'
+import ProfileMenu from './menu/ProfileMenu'
 import { useNavigate } from 'react-router-dom'
 import Tooltip from './base/Tooltip'
+import MoreFormMenu from './menu/MoreFormMenu'
 
 const FormNavbar: React.FC = () => {
   const navigate = useNavigate()
@@ -78,14 +79,7 @@ const FormNavbar: React.FC = () => {
         >
           Send
         </button>
-        <Tooltip label={'More'}>
-          <button className={iconRightClass}>
-            <DotsVerticalIcon
-              className={'w-5 h-5 text-gray-700'}
-              strokeWidth={2}
-            />
-          </button>
-        </Tooltip>
+        <MoreFormMenu />
         <ProfileMenu />
       </div>
     </div>
