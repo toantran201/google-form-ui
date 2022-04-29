@@ -42,7 +42,7 @@ const ButtonFormItem = ({ onSelectAction }: ButtonFormItemProps) => {
       >
         <Listbox.Button
           className={
-            'absolute right-0 bottom-0 p-1 rounded-full hover:bg-gray-200'
+            'absolute right-0 bottom-0 p-1 rounded-full hover:bg-gray-200 z-40'
           }
         >
           <DotsVerticalIcon

@@ -1,5 +1,6 @@
 import ButtonFormItem from './ButtonFormItem'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 interface RecentFormItemProps {
   id: number
@@ -10,17 +11,21 @@ interface RecentFormItemProps {
 }
 
 const RecentFormItem = (props: RecentFormItemProps) => {
+  const navigate = useNavigate()
   const { name, lastOpened, background, onSelectAction } = props
   return (
     <div
       className={
-        'w-52 border-[1px] border-gray-200 rounded-sm cursor-pointer hover:border-violet-800'
+        'w-52 border-[1px] border-gray-200 rounded-sm cursor-pointer hover:border-violet-800 relative'
       }
+      onClick={() => {
+        // navigate('detail')
+      }}
     >
       <div className={'border-b-[1px] border-gray-200'}>
         <img src={background} alt={name} className={'h-40'} />
       </div>
-      <div className={'relative pt-4 pb-3 pl-4 pr-2'}>
+      <div className={'pt-4 pb-3 pl-4 pr-2'}>
         <h3 className={'text-sm font-semibold'}>{name}</h3>
         <div className={'mt-1 flex items-center space-x-2'}>
           <img

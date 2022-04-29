@@ -1,0 +1,42 @@
+.tooltip-container{
+    @apply relative inline-block
+}
+.tooltip-block {
+    @apply absolute rounded-md px-2 py-1 text-white bg-gray-700 text-xs z-[100] whitespace-nowrap
+}
+.tooltip-block::before {
+    content: "";
+    @apply absolute w-0 h-0 border-solid pointer-events-none border-[6px] border-gray-700 bg-gray-700 z-[-1] rounded-sm;
+}
+
+/*right*/
+.tooltip-block.right {
+    @apply left-full top-1/2 -translate-y-1/2
+}
+.tooltip-block.right::before{
+    @apply -left-[4px] rotate-45 top-1/2 -translate-y-1/2;
+}
+
+/*bottom*/
+.tooltip-block.bottom {
+    @apply top-full left-1/2 -translate-x-1/2
+}
+.tooltip-block.bottom::before{
+    @apply -top-[4px] rotate-45 left-1/2 -translate-x-1/2;
+}
+
+/*left*/
+.tooltip-block.left {
+    @apply right-full top-1/2 -translate-y-1/2
+}
+.tooltip-block.left::before{
+    @apply -right-[4px] rotate-45 top-1/2 -translate-y-1/2;
+}
+
+/*top*/
+.tooltip-block.top {
+    @apply bottom-full left-1/2 -translate-x-1/2
+}
+.tooltip-block.top::before{
+    @apply -bottom-[4px] rotate-45 left-1/2 -translate-x-1/2;
+}
