@@ -23,7 +23,7 @@ const FormDetail = () => {
     <Tab.Group as={'div'}>
       <Tab.List
         as={'div'}
-        className={'fixed w-full z-40 bg-white border-b-[1px]'}
+        className={'fixed w-full z-10 bg-white border-b-[1px]'}
       >
         <div className={'form-container flex justify-center'}>
           {tabsHeader.map((item) => {

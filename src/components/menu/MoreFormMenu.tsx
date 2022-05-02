@@ -80,7 +80,7 @@ const MoreFormMenu = () => {
 
         <Popover.Panel
           className={classNames(
-            'absolute z-10 w-52 top-[100%] -right-10 py-2 bg-white rounded-lg menu-shadow'
+            'absolute z-[100] w-52 top-[100%] -right-10 py-2 bg-white rounded-lg menu-shadow'
           )}
         >
           {sections.map((section, index) => (

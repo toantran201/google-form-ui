@@ -7,7 +7,7 @@ const CustomBar: React.FC = () => {
   return (
     <div
       className={
-        'fixed right-0 top-[97px] bg-white h-[calc(100vh)] z-50 border-l-[1px]'
+        'fixed right-0 top-[97px] bg-white max-w-[300px] h-[calc(100vh)] z-20 border-l-[1px]'
       }
     >
       {/*Header*/}
