@@ -22,3 +22,10 @@ export interface HomeAction {
   isTemplateToggle: boolean
   isOpenSidebar: boolean
 }
+
+export interface ThemeItem {
+  id: number
+  color: string
+  tooltipText: string
+  backgroundColor: Partial<ThemeItem>[]
+}

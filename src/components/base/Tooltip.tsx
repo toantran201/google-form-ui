@@ -2,7 +2,7 @@ import React from 'react'
 
 interface TooltipProps {
   label: string
-  position?: string
+  position?: 'top' | 'bottom' | 'right' | 'left'
   delay?: number
 }
 
