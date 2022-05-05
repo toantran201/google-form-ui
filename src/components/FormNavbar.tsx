@@ -1,16 +1,14 @@
 import React from 'react'
-import {
-  DotsVerticalIcon,
-  EyeIcon,
-  FolderIcon,
-  StarIcon,
-} from '@heroicons/react/outline'
+import { EyeIcon, FolderIcon, StarIcon } from '@heroicons/react/outline'
 import ProfileMenu from './menu/ProfileMenu'
 import { useNavigate } from 'react-router-dom'
 import Tooltip from './base/Tooltip'
 import MoreFormMenu from './menu/MoreFormMenu'
+import { useCustomTheme } from '../context/CustomThemeProvider/CustomThemeProvider'
+import { SET_CUSTOM_MENU_BAR_STATE } from '../context/CustomThemeProvider/actions'
 
 const FormNavbar: React.FC = () => {
+  const dispatch = useCustomTheme().dispatch
   const navigate = useNavigate()
   const iconRightClass = 'p-3 hover:bg-gray-100 active:bg-gray-300 rounded-full'
   const iconLeftClass = 'p-1 hover:bg-gray-50 active:bg-gray-300 rounded-full'
@@ -41,7 +39,15 @@ const FormNavbar: React.FC = () => {
       </div>
       <div className={'flex items-center'}>
         <Tooltip label={'Customize Theme'}>
-          <button className={iconRightClass}>
+          <button
+            className={iconRightClass}
+            onClick={() => {
+              dispatch({
+                type: SET_CUSTOM_MENU_BAR_STATE,
+                value: true,
+              })
+            }}
+          >
             <img
               src="src/assets/icons/artboard.svg"
               alt="Artboard icon"

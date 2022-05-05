@@ -2,13 +2,29 @@ import React from 'react'
 import { PhotographIcon, XIcon } from '@heroicons/react/outline'
 import ThemeColor from './ThemeColor'
 import FontStyle from './FontStyle'
+import { useCustomTheme } from '../../../context/CustomThemeProvider/CustomThemeProvider'
+import classNames from 'classnames'
+import { SET_CUSTOM_MENU_BAR_STATE } from '../../../context/CustomThemeProvider/actions'
 
 const CustomBar: React.FC = () => {
+  const { customTheme, dispatch } = useCustomTheme()
+  const { isOpen } = customTheme
+
+  React.useEffect(() => {
+    return () => {
+      dispatch({
+        type: SET_CUSTOM_MENU_BAR_STATE,
+        value: false,
+      })
+    }
+  }, [])
+
   return (
     <div
-      className={
-        'fixed right-0 top-[97px] bg-white max-w-[300px] h-[calc(100vh)] z-20 border-l-[1px]'
-      }
+      className={classNames(
+        'fixed top-[97px] bg-white max-w-[300px] h-[calc(100vh)] z-20 border-l-[1px] transition-all duration-300',
+        isOpen ? 'right-0' : '-right-[300px]'
+      )}
     >
       {/*Header*/}
       <div
@@ -22,7 +38,15 @@ const CustomBar: React.FC = () => {
           />
           <h4 className={'font-medium text-gray-700'}>Theme options</h4>
         </div>
-        <button className={'p-2 rounded-full hover:bg-gray-50'}>
+        <button
+          className={'p-2 rounded-full hover:bg-gray-50'}
+          onClick={() => {
+            dispatch({
+              type: SET_CUSTOM_MENU_BAR_STATE,
+              value: false,
+            })
+          }}
+        >
           <XIcon className={'h-6 w-6 text-gray-700'} />
         </button>
       </div>

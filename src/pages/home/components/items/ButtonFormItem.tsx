@@ -41,6 +41,7 @@ const ButtonFormItem = ({ onSelectAction }: ButtonFormItemProps) => {
         value={selectedOption}
       >
         <Listbox.Button
+          onClick={(e: { stopPropagation: () => void }) => e.stopPropagation()}
           className={
             'absolute right-0 bottom-0 p-1 rounded-full hover:bg-gray-200 z-40'
           }
@@ -60,6 +61,9 @@ const ButtonFormItem = ({ onSelectAction }: ButtonFormItemProps) => {
               key={item.id}
               value={item}
               className={'py-2 px-4 hover:bg-gray-100 cursor-pointer'}
+              onClick={(e: { stopPropagation: () => void }) =>
+                e.stopPropagation()
+              }
             >
               <div className={classNames('flex items-center space-x-4')}>
                 <div>

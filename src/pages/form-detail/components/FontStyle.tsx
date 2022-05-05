@@ -50,7 +50,7 @@ const FontStyle: React.FC = () => {
               {({ selected }) => (
                 <li
                   className={classNames(
-                    'list-none px-4 py-4 text-sm text-gray-700',
+                    'list-none px-4 py-4 text-sm text-gray-700 cursor-pointer',
                     selected
                       ? 'bg-blue-50 hover:bg-gray-50'
                       : 'bg-white hover:bg-gray-100'

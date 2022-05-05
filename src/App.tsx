@@ -1,4 +1,5 @@
 import { HomeActionContextProvider } from './context/HomeActionProvider'
+import { CustomThemeContextProvider } from './context/CustomThemeProvider/CustomThemeProvider'
 import { Route, Routes } from 'react-router-dom'
 import NotFound from './pages/notfound/NotFound'
 import MainLayout from './layout/main/MainLayout'
@@ -11,13 +12,15 @@ function App() {
       <HomeActionContextProvider
         initHomeAction={{ isTemplateToggle: false, isOpenSidebar: false }}
       >
-        <Routes>
-          <Route path={'/'} element={<MainLayout />}>
-            <Route path={'/'} element={<Home />} />
-            <Route path={'detail'} element={<FormDetail />} />
-          </Route>
-          <Route path={'*'} element={<NotFound />} />
-        </Routes>
+        <CustomThemeContextProvider initThemeValue={{ isOpen: false }}>
+          <Routes>
+            <Route path={'/'} element={<MainLayout />}>
+              <Route path={'/'} element={<Home />} />
+              <Route path={'detail'} element={<FormDetail />} />
+            </Route>
+            <Route path={'*'} element={<NotFound />} />
+          </Routes>
+        </CustomThemeContextProvider>
       </HomeActionContextProvider>
     </div>
   )

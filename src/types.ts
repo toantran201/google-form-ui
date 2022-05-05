@@ -23,6 +23,10 @@ export interface HomeAction {
   isOpenSidebar: boolean
 }
 
+export interface CustomTheme {
+  isOpen: boolean
+}
+
 export interface ThemeItem {
   id: number
   color: string

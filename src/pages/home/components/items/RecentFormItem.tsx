@@ -19,7 +19,7 @@ const RecentFormItem = (props: RecentFormItemProps) => {
         'w-52 border-[1px] border-gray-200 rounded-sm cursor-pointer hover:border-violet-800 relative'
       }
       onClick={() => {
-        // navigate('detail')
+        navigate('detail')
       }}
     >
       <div className={'border-b-[1px] border-gray-200'}>
