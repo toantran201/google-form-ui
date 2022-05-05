@@ -1,6 +1,6 @@
 import React, { Dispatch } from 'react'
 import { CustomTheme } from '../../types'
-import { SET_CUSTOM_MENU_BAR_STATE } from './actions'
+import { SET_CUSTOM_MENU_BAR_STATE, SET_THEME_VALUE } from './actions'
 
 interface CustomThemeReducerProps {
   type: string
@@ -27,6 +27,9 @@ const reducerFn = (state: CustomTheme, action: CustomThemeReducerProps) => {
     case SET_CUSTOM_MENU_BAR_STATE: {
       return { ...state, isOpen: action.value }
     }
+    case SET_THEME_VALUE: {
+      return { ...state, theme: action.value }
+    }
     default:
       return state
   }
@@ -40,6 +43,11 @@ export const CustomThemeContextProvider: React.FC<
   CustomThemeContextProviderProps
 > = (props) => {
   const [state, dispatch] = React.useReducer(reducerFn, props.initThemeValue)
+
+  React.useEffect(() => {
+    document.documentElement.dataset.theme = state.theme
+    window.localStorage.setItem('theme', state.theme)
+  }, [state.theme])
 
   return (
     <CustomThemeContext.Provider

@@ -5,6 +5,16 @@ import NotFound from './pages/notfound/NotFound'
 import MainLayout from './layout/main/MainLayout'
 import Home from './pages/home/Home'
 import FormDetail from './pages/form-detail/FormDetail'
+import { Theme } from './types'
+
+const getInitialTheme = () => {
+  if (typeof window !== undefined && window.localStorage) {
+    const theme = window.localStorage.getItem('theme')
+    if (theme) return theme
+  }
+
+  return Theme.PURPLE
+}
 
 function App() {
   return (
@@ -12,7 +22,9 @@ function App() {
       <HomeActionContextProvider
         initHomeAction={{ isTemplateToggle: false, isOpenSidebar: false }}
       >
-        <CustomThemeContextProvider initThemeValue={{ isOpen: false }}>
+        <CustomThemeContextProvider
+          initThemeValue={{ isOpen: false, theme: getInitialTheme() }}
+        >
           <Routes>
             <Route path={'/'} element={<MainLayout />}>
               <Route path={'/'} element={<Home />} />

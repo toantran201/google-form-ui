@@ -4,7 +4,10 @@ import ThemeColor from './ThemeColor'
 import FontStyle from './FontStyle'
 import { useCustomTheme } from '../../../context/CustomThemeProvider/CustomThemeProvider'
 import classNames from 'classnames'
-import { SET_CUSTOM_MENU_BAR_STATE } from '../../../context/CustomThemeProvider/actions'
+import {
+  SET_CUSTOM_MENU_BAR_STATE,
+  SET_THEME_VALUE,
+} from '../../../context/CustomThemeProvider/actions'
 
 const CustomBar: React.FC = () => {
   const { customTheme, dispatch } = useCustomTheme()

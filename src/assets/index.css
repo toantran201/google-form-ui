@@ -47,3 +47,42 @@
         box-shadow: 0px 1px 2px 0px rgb(60 64 67 / 30%), 0px 2px 6px 2px rgb(60 64 67 / 15%);
     }
 }
+
+@layer base {
+    [data-theme='red']{
+        --text-tab: #db4437
+    }
+    [data-theme='purple']{
+        --text-tab: #673ab7
+    }
+    [data-theme='indigo']{
+        --text-tab: #3f51b5
+    }
+    [data-theme='blue']{
+        --text-tab: #4285f4
+    }
+    [data-theme='light-blue']{
+        --text-tab: #03a9f4
+    }
+    [data-theme='cyan']{
+        --text-tab: #00bcd4
+    }
+    [data-theme='red-orange']{
+        --text-tab: #ff5722
+    }
+    [data-theme='orange']{
+        --text-tab: #ff9800
+    }
+    [data-theme='teal']{
+        --text-tab: #009688
+    }
+    [data-theme='green']{
+        --text-tab: #4caf50
+    }
+    [data-theme='blue-gray']{
+        --text-tab: #607d8b
+    }
+    [data-theme='gray']{
+        --text-tab: #9e9e9e
+    }
+}

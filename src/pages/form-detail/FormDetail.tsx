@@ -2,7 +2,10 @@ import { Tab } from '@headlessui/react'
 import { Fragment } from 'react'
 import classNames from 'classnames'
 import CustomBar from './components/CustomBar'
-import { CustomThemeContextProvider } from '../../context/CustomThemeProvider/CustomThemeProvider'
+import {
+  CustomThemeContextProvider,
+  useCustomTheme,
+} from '../../context/CustomThemeProvider/CustomThemeProvider'
 
 const tabsHeader = [
   {
@@ -50,7 +53,9 @@ const FormDetail = () => {
       <div className={'relative'}>
         <CustomBar />
         <Tab.Panels as={'div'} className={'form-container pt-8'}>
-          <Tab.Panel>Content 1</Tab.Panel>
+          <Tab.Panel>
+            <h1 className={'text-tab'}>Hello</h1>
+          </Tab.Panel>
           <Tab.Panel>Content 2</Tab.Panel>
           <Tab.Panel>Content 3</Tab.Panel>
         </Tab.Panels>

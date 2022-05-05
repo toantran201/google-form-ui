@@ -1,8 +1,16 @@
 export enum Theme {
-  DARK = 'dark',
-  LIGHT = 'light',
-  GREEN = 'green',
+  RED = 'red',
+  PURPLE = 'purple',
+  INDIGO = 'indigo',
   BLUE = 'blue',
+  LIGHT_BLUE = 'light-blue',
+  CYAN = 'cyan',
+  RED_ORANGE = 'red-orange',
+  ORANGE = 'orange',
+  TEAL = 'teal',
+  GREEN = 'green',
+  BLUE_GRAY = 'blue-gray',
+  GRAY = 'gray',
 }
 
 export interface FormItem {
@@ -25,6 +33,7 @@ export interface HomeAction {
 
 export interface CustomTheme {
   isOpen: boolean
+  theme: string
 }
 
 export interface ThemeItem {

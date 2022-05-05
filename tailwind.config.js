@@ -9,7 +9,7 @@ module.exports = {
         poppins: ['Poppins', 'sans-serif'],
       },
       textColor: {
-        primary: 'var(--text-primary)',
+        tab: 'var(--text-tab)',
       },
       backgroundColor: {
         primary: 'var(--background)',
