@@ -9,10 +9,10 @@ module.exports = {
         poppins: ['Poppins', 'sans-serif'],
       },
       textColor: {
-        tab: 'var(--text-tab)',
+        'form-primary': 'var(--form-primary)',
       },
       backgroundColor: {
-        primary: 'var(--background)',
+        'form-primary': 'var(--form-primary)',
       },
       aspectRatio: {
         '17/13': '17 / 13',

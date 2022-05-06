@@ -6,6 +6,7 @@ import {
   CustomThemeContextProvider,
   useCustomTheme,
 } from '../../context/CustomThemeProvider/CustomThemeProvider'
+import QuestionsTab from './QuestionsTab/QuestionsTab'
 
 const tabsHeader = [
   {
@@ -37,7 +38,7 @@ const FormDetail = () => {
                   <button
                     className={classNames(
                       'py-2 px-3 text-sm font-medium outline-none',
-                      selected ? 'text-tab' : 'text-gray-700'
+                      selected ? 'text-form-primary' : 'text-gray-700'
                     )}
                   >
                     {item.title}
@@ -52,7 +53,7 @@ const FormDetail = () => {
         <CustomBar />
         <Tab.Panels as={'div'} className={'form-container pt-8'}>
           <Tab.Panel>
-            <h1 className={'text-tab'}>Hello</h1>
+            <QuestionsTab />
           </Tab.Panel>
           <Tab.Panel>Content 2</Tab.Panel>
           <Tab.Panel>Content 3</Tab.Panel>

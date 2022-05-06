@@ -5,7 +5,6 @@ import HomeNavbar from '../../components/HomeNavbar'
 
 const NavbarLayout: React.FC = () => {
   const location = useLocation()
-  console.log(location)
 
   const renderNavbar = (): ReactNode => {
     if (location.pathname.includes('detail')) return <FormNavbar />

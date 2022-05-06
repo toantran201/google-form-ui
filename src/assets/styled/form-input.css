@@ -1,0 +1,54 @@
+/*block*/
+.form-input-block{
+    @apply relative
+}
+
+.form-input-block.small {
+    @apply pb-[2px]
+}
+
+.form-input-block.large {
+    @apply pb-2
+}
+
+.form-input-block:before{
+    content: "";
+    @apply absolute bottom-0 left-0 h-[2px] w-full bg-gray-200 z-20 bg-form-primary scale-x-0 transition-all duration-200
+}
+.form-input-block:after{
+    content: "";
+    @apply absolute bottom-0 left-0  w-full bg-gray-200 z-10
+}
+
+.form-input-block.large:after{
+    @apply h-[2px]
+}
+
+.form-input-block.large:before{
+    @apply h-[2.5px]
+}
+
+.form-input-block.small:after{
+    @apply h-[1px]
+}
+
+.form-input-block.small:before{
+    @apply h-[1.5px]
+}
+
+.form-input-block:focus-within:before{
+    @apply scale-x-100
+}
+
+/*input*/
+.form-input {
+    @apply outline-none w-full text-gray-700
+}
+
+.form-input.large{
+    @apply text-3xl
+}
+
+.form-input.small{
+    @apply text-base
+}
