@@ -36,10 +36,8 @@ const FormDetail = () => {
                 {({ selected }) => (
                   <button
                     className={classNames(
-                      'py-1.5 px-3 text-sm font-medium outline-none',
-                      selected
-                        ? 'bg-blue-500 text-white'
-                        : 'bg-white text-gray-800'
+                      'py-2 px-3 text-sm font-medium outline-none',
+                      selected ? 'text-tab' : 'text-gray-700'
                     )}
                   >
                     {item.title}

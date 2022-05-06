@@ -40,5 +40,6 @@ export interface ThemeItem {
   id: number
   color: string
   tooltipText: string
+  value: string
   backgroundColor: Partial<ThemeItem>[]
 }

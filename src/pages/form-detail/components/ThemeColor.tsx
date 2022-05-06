@@ -1,13 +1,16 @@
 import { CheckIcon } from '@heroicons/react/outline'
 import React from 'react'
 import Tooltip from '../../../components/base/Tooltip'
-import { ThemeItem } from '../../../types'
+import { Theme, ThemeItem } from '../../../types'
 import classNames from 'classnames'
+import { useCustomTheme } from '../../../context/CustomThemeProvider/CustomThemeProvider'
+import { SET_THEME_VALUE } from '../../../context/CustomThemeProvider/actions'
 const themes: ThemeItem[] = [
   {
     id: 1,
     color: '#db4437',
     tooltipText: 'Red',
+    value: Theme.RED,
     backgroundColor: [
       {
         id: 1,
@@ -35,6 +38,7 @@ const themes: ThemeItem[] = [
     id: 2,
     color: '#673ab7',
     tooltipText: 'Purple',
+    value: Theme.PURPLE,
     backgroundColor: [
       {
         id: 1,
@@ -62,6 +66,7 @@ const themes: ThemeItem[] = [
     id: 3,
     color: '#3f51b5',
     tooltipText: 'Indigo',
+    value: Theme.INDIGO,
     backgroundColor: [
       {
         id: 1,
@@ -89,6 +94,7 @@ const themes: ThemeItem[] = [
     id: 4,
     color: '#4285f4',
     tooltipText: 'Blue',
+    value: Theme.BLUE,
     backgroundColor: [
       {
         id: 1,
@@ -116,6 +122,7 @@ const themes: ThemeItem[] = [
     id: 5,
     color: '#03a9f4',
     tooltipText: 'Light Blue',
+    value: Theme.LIGHT_BLUE,
     backgroundColor: [
       {
         id: 1,
@@ -143,6 +150,7 @@ const themes: ThemeItem[] = [
     id: 6,
     color: '#00bcd4',
     tooltipText: 'Cyan',
+    value: Theme.CYAN,
     backgroundColor: [
       {
         id: 1,
@@ -170,6 +178,7 @@ const themes: ThemeItem[] = [
     id: 7,
     color: '#ff5722',
     tooltipText: 'Red Orange',
+    value: Theme.RED_ORANGE,
     backgroundColor: [
       {
         id: 1,
@@ -197,6 +206,7 @@ const themes: ThemeItem[] = [
     id: 8,
     color: '#ff9800',
     tooltipText: 'Orange',
+    value: Theme.ORANGE,
     backgroundColor: [
       {
         id: 1,
@@ -224,6 +234,7 @@ const themes: ThemeItem[] = [
     id: 9,
     color: '#009688',
     tooltipText: 'Teal',
+    value: Theme.TEAL,
     backgroundColor: [
       {
         id: 1,
@@ -251,6 +262,7 @@ const themes: ThemeItem[] = [
     id: 10,
     color: '#4caf50',
     tooltipText: 'Green',
+    value: Theme.GREEN,
     backgroundColor: [
       {
         id: 1,
@@ -278,6 +290,7 @@ const themes: ThemeItem[] = [
     id: 11,
     color: '#607d8b',
     tooltipText: 'Blue Gray',
+    value: Theme.BLUE_GRAY,
     backgroundColor: [
       {
         id: 1,
@@ -305,6 +318,7 @@ const themes: ThemeItem[] = [
     id: 12,
     color: '#9e9e9e',
     tooltipText: 'Gray',
+    value: Theme.GRAY,
     backgroundColor: [
       {
         id: 1,
@@ -334,6 +348,7 @@ interface ColorItemProps {
   item: Partial<ThemeItem>
   isChecked?: boolean
   border?: boolean
+  onClick?: (selectedTheme: Partial<ThemeItem>) => void
 }
 
 const ColorItem: React.FC<ColorItemProps> = (props) => {
@@ -348,6 +363,11 @@ const ColorItem: React.FC<ColorItemProps> = (props) => {
           { 'border-[1px]': props.border }
         )}
         style={{ backgroundColor: props.item.color }}
+        onClick={() => {
+          if (props.onClick) {
+            props.onClick(props.item)
+          }
+        }}
       >
         {props.isChecked ? (
           <CheckIcon className={'h-4 w-4 text-white'} strokeWidth={4} />
@@ -360,17 +380,47 @@ const ColorItem: React.FC<ColorItemProps> = (props) => {
 }
 
 const ThemeColor: React.FC = () => {
-  const selectedTheme: ThemeItem = themes[1]
+  const { customTheme, dispatch } = useCustomTheme()
+  const { theme } = customTheme
+
+  const [selectedTheme, setSelectedTheme] = React.useState<ThemeItem>()
+  const [selectedBackground, setSelectedBackground] =
+    React.useState<Partial<ThemeItem>>()
+
+  React.useEffect(() => {
+    const choiceTheme = themes.find((item) => item.value === theme)
+    setSelectedTheme(choiceTheme)
+    setSelectedBackground(choiceTheme?.backgroundColor[0])
+  }, [theme])
+
+  React.useEffect(() => {
+    if (selectedBackground?.color) {
+      window.document.body.style.backgroundColor = selectedBackground.color
+    }
+  }, [selectedBackground])
+
+  const changeTheme = (selectedTheme: Partial<ThemeItem>) => {
+    dispatch({
+      type: SET_THEME_VALUE,
+      value: selectedTheme.value,
+    })
+  }
+
+  const changeBackground = (selectedBackground: Partial<ThemeItem>) => {
+    setSelectedBackground(selectedBackground)
+  }
+
   return (
     <div>
       <div className={'p-6 border-b-[1px]'}>
         <h4 className={'uppercase text-xs'}>Theme color</h4>
-        <div className={'grid grid-cols-6 mt-3 gap-1.5'}>
+        <div className={'flex flex-wrap mt-3 mr-16 gap-1.5'}>
           {themes.map((item) => (
             <ColorItem
               key={item.id}
               item={item}
-              isChecked={item.id === selectedTheme.id}
+              isChecked={item.value === theme}
+              onClick={changeTheme}
             />
           ))}
         </div>
@@ -378,13 +428,14 @@ const ThemeColor: React.FC = () => {
 
       <div className={'p-6 border-b-[1px]'}>
         <h4 className={'uppercase text-xs'}>Background Color</h4>
-        <div className={'grid grid-cols-6 mt-3 gap-1.5'}>
-          {selectedTheme.backgroundColor.map((item) => (
+        <div className={'flex flex-wrap mt-3 mr-16 gap-1.5'}>
+          {selectedTheme?.backgroundColor?.map((item) => (
             <ColorItem
               key={item.id}
               item={item}
-              isChecked={item.id === selectedTheme.id}
+              isChecked={item.id === selectedBackground?.id}
               border={true}
+              onClick={changeBackground}
             />
           ))}
         </div>
