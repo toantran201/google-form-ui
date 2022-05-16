@@ -1,16 +1,19 @@
 import React from 'react'
 
 interface FormInputProps {
-  size?: 'small' | 'large'
-  className?: string
+  containerClassName?: string
+  inputClassName?: string
+  placeHolder?: string
 }
 
 const FormInput: React.FC<FormInputProps> = (props) => {
+  const { containerClassName, placeHolder, inputClassName } = props
   return (
-    <div className={`form-input-block ${props.size || 'small'}`}>
+    <div className={`form-input-block w-full ${containerClassName}`}>
       <input
         type="text"
-        className={`form-input ${props.size || 'small'} ${props.className}`}
+        placeholder={placeHolder}
+        className={`form-input ${inputClassName}`}
       />
     </div>
   )

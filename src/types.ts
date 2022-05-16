@@ -1,3 +1,4 @@
+// Enum
 export enum Theme {
   RED = 'red',
   PURPLE = 'purple',
@@ -13,6 +14,7 @@ export enum Theme {
   GRAY = 'gray',
 }
 
+// Interface
 export interface FormItem {
   id: number
   background: string

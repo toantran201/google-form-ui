@@ -28,7 +28,7 @@ const useOutSideClick = (
     return () => {
       document.removeEventListener('mousedown', listener)
       document.removeEventListener('touchstart', listener)
-      document.addEventListener('keydown', keyDownListener)
+      document.removeEventListener('keydown', keyDownListener)
     }
   }, [ref, fnHandler, visibleState])
 }

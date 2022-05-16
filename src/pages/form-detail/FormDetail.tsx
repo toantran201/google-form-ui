@@ -2,10 +2,6 @@ import { Tab } from '@headlessui/react'
 import { Fragment } from 'react'
 import classNames from 'classnames'
 import CustomBar from './components/CustomBar'
-import {
-  CustomThemeContextProvider,
-  useCustomTheme,
-} from '../../context/CustomThemeProvider/CustomThemeProvider'
 import QuestionsTab from './QuestionsTab/QuestionsTab'
 
 const tabsHeader = [
@@ -31,7 +27,7 @@ const FormDetail = () => {
         className={'fixed w-full z-10 bg-white border-b-[1px]'}
       >
         <div className={'form-container flex justify-center'}>
-          {tabsHeader.map((item) => {
+          {tabsHeader.map((item, index) => {
             return (
               <Tab key={item.id} as={Fragment}>
                 {({ selected }) => (
@@ -40,6 +36,7 @@ const FormDetail = () => {
                       'py-2 px-3 text-sm font-medium outline-none',
                       selected ? 'text-form-primary' : 'text-gray-700'
                     )}
+                    disabled={index > 0}
                   >
                     {item.title}
                   </button>
