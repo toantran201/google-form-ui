@@ -1,7 +1,7 @@
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import Question from './question/Question'
 
-const QuestionsBlock = () => {
+const FormContent = () => {
   const onDragEnd = () => {
     //
   }
@@ -24,4 +24,4 @@ const QuestionsBlock = () => {
   )
 }
 
-export default QuestionsBlock
+export default FormContent

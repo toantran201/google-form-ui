@@ -1,10 +1,10 @@
-import { FormGroup } from '../../../types'
+import { FormConfigGroup } from '../../../types'
 import NewFormItem from './items/NewFormItem'
 import React from 'react'
 import classNames from 'classnames'
 
 export interface FormGroupProps {
-  formGroup: FormGroup
+  formGroup: FormConfigGroup
 }
 
 const FormsGroup = ({ formGroup }: FormGroupProps) => {

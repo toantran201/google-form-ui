@@ -3,15 +3,25 @@ import { DotsHorizontalIcon } from '@heroicons/react/outline'
 import { useRef, useState } from 'react'
 import useInsideClick from '../../../../hooks/useInsideClick'
 import QuestionCreator from './QuestionCreator'
+import useOutSideClick from '../../../../hooks/useOutSideClick'
+import classNames from 'classnames'
 
 const Question = ({ index }: { index: number }) => {
   const questionBlockRef = useRef<HTMLDivElement>(null)
-  const [isActive, setIsActive] = useState(true)
+  const [isActive, setIsActive] = useState(false)
 
   useInsideClick(
     questionBlockRef,
     () => {
       setIsActive(true)
+    },
+    isActive
+  )
+
+  useOutSideClick(
+    questionBlockRef,
+    () => {
+      setIsActive(false)
     },
     isActive
   )
@@ -23,7 +33,13 @@ const Question = ({ index }: { index: number }) => {
           <div
             ref={provided.innerRef}
             {...provided.draggableProps}
-            className={'group bg-white mt-4 rounded-xl px-6 pb-6'}
+            className={classNames(
+              `relative group bg-white mt-4 rounded-lg px-6 pb-6 overflow-hidden`,
+              {
+                'after:absolute after:h-full after:w-[6px] after:bg-[#4285f4] after:top-0 after:left-0':
+                  isActive,
+              }
+            )}
           >
             <div {...provided.dragHandleProps}>
               {/* Drag indicator section here */}

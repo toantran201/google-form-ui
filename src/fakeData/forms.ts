@@ -1,6 +1,6 @@
-import { FormGroup, FormItem } from '../types'
+import { FormConfigGroup, FormConfigItem } from '../types'
 
-export const formGroupList: FormGroup[] = [
+export const formGroupList: FormConfigGroup[] = [
   {
     id: 1,
     name: 'Recent Used',
@@ -165,7 +165,7 @@ export const formGroupList: FormGroup[] = [
   },
 ]
 
-export const recentOpenForms: FormItem[] = [
+export const recentOpenForms: FormConfigItem[] = [
   {
     id: 1,
     name: 'T-Shirt Sign Up',

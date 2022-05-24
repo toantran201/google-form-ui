@@ -15,17 +15,17 @@ export enum Theme {
 }
 
 // Interface
-export interface FormItem {
+export interface FormConfigItem {
   id: number
   background: string
   name: string
   lastOpened?: string
 }
 
-export interface FormGroup {
+export interface FormConfigGroup {
   id: number
   name: string
-  forms: FormItem[]
+  forms: FormConfigItem[]
 }
 
 export interface HomeAction {
@@ -44,4 +44,33 @@ export interface ThemeItem {
   tooltipText: string
   value: string
   backgroundColor: Partial<ThemeItem>[]
+}
+
+// Form
+export interface Form {
+  id: number
+  theme: string
+  background: string
+  isStar: boolean
+  name: string
+}
+
+export interface FormSection {
+  id: number
+  index: number
+  title: string
+  description: string
+  questions: Question[]
+  isDefault: boolean
+}
+
+export interface Question {
+  id: number
+  index: number
+  type: string
+  title?: string
+  background?: string
+  isRequired?: boolean
+  description?: string
+  answer?: string | undefined
 }

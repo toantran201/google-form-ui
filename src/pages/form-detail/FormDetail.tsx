@@ -1,7 +1,7 @@
 import { Tab } from '@headlessui/react'
 import { Fragment } from 'react'
 import classNames from 'classnames'
-import CustomBar from './components/CustomBar'
+import CustomSideBar from './components/CustomSideBar'
 import QuestionsTab from './QuestionsTab/QuestionsTab'
 
 const tabsHeader = [
@@ -47,7 +47,7 @@ const FormDetail = () => {
         </div>
       </Tab.List>
       <div className={'relative'}>
-        <CustomBar />
+        <CustomSideBar />
         <Tab.Panels as={'div'} className={'form-container pt-8'}>
           <Tab.Panel>
             <QuestionsTab />

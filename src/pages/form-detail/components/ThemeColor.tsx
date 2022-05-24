@@ -397,6 +397,10 @@ const ThemeColor: React.FC = () => {
     if (selectedBackground?.color) {
       window.document.body.style.backgroundColor = selectedBackground.color
     }
+
+    return () => {
+      window.document.body.style.backgroundColor = 'inherit'
+    }
   }, [selectedBackground])
 
   const changeTheme = (selectedTheme: Partial<ThemeItem>) => {
